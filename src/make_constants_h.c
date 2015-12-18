@@ -30,6 +30,25 @@ typedef struct error_bounds
 } error_bounds_t;
 
 
+/*****************************************************************************/
+/*                                                                           */
+/*  compute_error_bounds()   Initialize the variables for exact arithmetic.  */
+/*                                                                           */
+/*  `epsilon' is the largest power of two such that 1.0 + epsilon = 1.0 in   */
+/*  floating-point arithmetic.  `epsilon' bounds the relative roundoff       */
+/*  error.  It is used for floating-point error analysis.                    */
+/*                                                                           */
+/*  `splitter' is used to split floating-point numbers into two half-        */
+/*  length significands for exact multiplication.                            */
+/*                                                                           */
+/*  I imagine that a highly optimizing compiler might be too smart for its   */
+/*  own good, and somehow cause this routine to fail, if it pretends that    */
+/*  floating-point arithmetic is too much like real arithmetic.              */
+/*                                                                           */
+/*  Don't change this routine unless you fully understand it.                */
+/*                                                                           */
+/*****************************************************************************/
+
 error_bounds_t compute_error_bounds()
 {
   int every_other = 1;
@@ -80,8 +99,13 @@ void write_error_bounds(const char * filename, error_bounds_t err_bounds)
   fprintf(fid, "#ifndef ERROR_BOUNDS_H\n");
   fprintf(fid, "#define ERROR_BOUNDS_H\n\n");
 
-  fprintf(fid, "const double epsilon = %a;\n", err_bounds.epsilon);
-  fprintf(fid, "const double splitter = %a;\n", err_bounds.splitter);
+  fprintf(fid, "/* 2^{-p}. Used to estimate roundoff errors. */\n");
+  fprintf(fid, "const double epsilon = %a;\n\n", err_bounds.epsilon);
+
+  fprintf(fid, "/* 2^ceil(p/2) + 1. Used to split floating point numbers in half. */\n");
+  fprintf(fid, "const double splitter = %a;\n\n", err_bounds.splitter);
+
+  fprintf(fid, "/* A set of constants used to calculate maximum roundoff errors. */\n");
   fprintf(fid, "const double resulterrbound = %a;\n", err_bounds.resulterrbound);
 
   fprintf(fid, "const double ccwerrboundA = %a;\n", err_bounds.ccwerrboundA);
