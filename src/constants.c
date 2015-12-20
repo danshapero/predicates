@@ -1,6 +1,19 @@
 
 #include <float.h>
 
+/**
+ * Different sources define the "machine epsilon" in one of two ways.
+ * The C standard library header `float.h` defines DBL_EPSILON, such that
+ *     1.0 + DBL_EPSILON > 1.0
+ * in double-precision arithmetic, but such that
+ *     1.0 + z = 1.0
+ * for any `z < DBL_EPSILON`. Many other sources, included Shewchuk's original
+ * code and the supporting paper, define the machine epsilon instead as the
+ * largest floating-point number such that
+ *     1.0 + epsilon = 1.0
+ * The two are related by
+ *     epsilon = DBL_EPSILON / 2.
+ */
 #define EPS (DBL_EPSILON / 2)
 
 const double epsilon = EPS;

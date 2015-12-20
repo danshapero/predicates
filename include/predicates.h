@@ -2,6 +2,7 @@
 #ifndef PREDICATES_H
 #define PREDICATES_H
 
+/* Geometric predicates */
 double orient2d(double * pa, double * pb, double * pc);
 double orient3d(double * pa, double * pb, double * pc, double * pd);
 

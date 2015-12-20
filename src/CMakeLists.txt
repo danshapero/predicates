@@ -1,7 +1,8 @@
 
 set (SRCS
   constants.c
-  predicates.c)
+  predicates.c
+  printing.c)
 
 add_library (predicates SHARED ${SRCS})
 
