@@ -113,10 +113,8 @@
 /*                                                                           */
 /*****************************************************************************/
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include <sys/time.h>
 
 #include "constants.h"
 
@@ -133,10 +131,7 @@
 /* #define INEXACT volatile */
 
 #define REAL double                      /* float or double */
-#define REALPRINT doubleprint
-#define REALRAND doublerand
-#define NARROWRAND narrowdoublerand
-#define UNIFORMRAND uniformdoublerand
+
 
 /* Which of the following two methods of finding the absolute values is      */
 /*   fastest is compiler-dependent.  A few compilers can inline and optimize */
@@ -361,141 +356,6 @@
   Two_Two_Sum(_j, _1, _l, _2, x5, x4, x3, x2)
 
 
-
-/*****************************************************************************/
-/*                                                                           */
-/*  doublerand()   Generate a double with random 53-bit significand and a    */
-/*                 random exponent in [0, 511].                              */
-/*                                                                           */
-/*****************************************************************************/
-
-double doublerand()
-{
-  double result;
-  double expo;
-  long a, b, c;
-  long i;
-
-  a = random();
-  b = random();
-  c = random();
-  result = (double) (a - 1073741824) * 8388608.0 + (double) (b >> 8);
-  for (i = 512, expo = 2; i <= 131072; i *= 2, expo = expo * expo) {
-    if (c & i) {
-      result *= expo;
-    }
-  }
-  return result;
-}
-
-/*****************************************************************************/
-/*                                                                           */
-/*  narrowdoublerand()   Generate a double with random 53-bit significand    */
-/*                       and a random exponent in [0, 7].                    */
-/*                                                                           */
-/*****************************************************************************/
-
-double narrowdoublerand()
-{
-  double result;
-  double expo;
-  long a, b, c;
-  long i;
-
-  a = random();
-  b = random();
-  c = random();
-  result = (double) (a - 1073741824) * 8388608.0 + (double) (b >> 8);
-  for (i = 512, expo = 2; i <= 2048; i *= 2, expo = expo * expo) {
-    if (c & i) {
-      result *= expo;
-    }
-  }
-  return result;
-}
-
-/*****************************************************************************/
-/*                                                                           */
-/*  uniformdoublerand()   Generate a double with random 53-bit significand.  */
-/*                                                                           */
-/*****************************************************************************/
-
-double uniformdoublerand()
-{
-  double result;
-  long a, b;
-
-  a = random();
-  b = random();
-  result = (double) (a - 1073741824) * 8388608.0 + (double) (b >> 8);
-  return result;
-}
-
-/*****************************************************************************/
-/*                                                                           */
-/*  floatrand()   Generate a float with random 24-bit significand and a      */
-/*                random exponent in [0, 63].                                */
-/*                                                                           */
-/*****************************************************************************/
-
-float floatrand()
-{
-  float result;
-  float expo;
-  long a, c;
-  long i;
-
-  a = random();
-  c = random();
-  result = (float) ((a - 1073741824) >> 6);
-  for (i = 512, expo = 2; i <= 16384; i *= 2, expo = expo * expo) {
-    if (c & i) {
-      result *= expo;
-    }
-  }
-  return result;
-}
-
-/*****************************************************************************/
-/*                                                                           */
-/*  narrowfloatrand()   Generate a float with random 24-bit significand and  */
-/*                      a random exponent in [0, 7].                         */
-/*                                                                           */
-/*****************************************************************************/
-
-float narrowfloatrand()
-{
-  float result;
-  float expo;
-  long a, c;
-  long i;
-
-  a = random();
-  c = random();
-  result = (float) ((a - 1073741824) >> 6);
-  for (i = 512, expo = 2; i <= 2048; i *= 2, expo = expo * expo) {
-    if (c & i) {
-      result *= expo;
-    }
-  }
-  return result;
-}
-
-/*****************************************************************************/
-/*                                                                           */
-/*  uniformfloatrand()   Generate a float with random 24-bit significand.    */
-/*                                                                           */
-/*****************************************************************************/
-
-float uniformfloatrand()
-{
-  float result;
-  long a;
-
-  a = random();
-  result = (float) ((a - 1073741824) >> 6);
-  return result;
-}
 
 
 /*****************************************************************************/
