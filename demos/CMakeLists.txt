@@ -1,0 +1,16 @@
+
+set (demo_list)
+
+find_package(PNG)
+if (PNG_FOUND)
+  include_directories(${PNG_INCLUDE_DIRS})
+  set (demo_list
+    orientation.c)
+endif(PNG_FOUND)
+
+
+foreach (demo ${demo_list})
+  string (REPLACE ".c" "" demo ${demo})
+  add_executable (${demo} ${PROJECT_SOURCE_DIR}/demos/${demo}.c)
+  target_link_libraries (${demo} predicates m ${PNG_LIBRARIES})
+endforeach (demo)
