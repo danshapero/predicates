@@ -106,10 +106,6 @@ double * perturb(const double * x1, const double * x2, const double * x3,
 
   double * zs = calloc(sizeof(double), nx * ny);
 
-  for (size_t i = 0; i < ny; ++i)
-    for (size_t j = 0; j < nx; ++j)
-      zs[nx * i + j] = 0.0;
-
   for (size_t i = 0; i < ny; ++i) {
     x[0] = x1[0];
     for (size_t j = 0; j < nx; ++j) {
@@ -165,7 +161,6 @@ int main(int argc, char ** argv)
   bitmap_t b3 = matrix_to_bitmap(z3, nx, ny);
   save_png_to_file(&b3, "orientation3.png");
   free(z3); free(b3.pixels);
-
 
   return 0;
 }
