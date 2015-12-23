@@ -11,6 +11,8 @@ endif(PNG_FOUND)
 
 foreach (demo ${demo_list})
   string (REPLACE ".c" "" demo ${demo})
-  add_executable (${demo} ${PROJECT_SOURCE_DIR}/demos/${demo}.c)
+  add_executable (${demo}
+    ${PROJECT_SOURCE_DIR}/demos/${demo}.c
+    ${PROJECT_SOURCE_DIR}/demos/write_png.c)
   target_link_libraries (${demo} predicates m ${PNG_LIBRARIES})
 endforeach (demo)
