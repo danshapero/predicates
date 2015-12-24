@@ -40,18 +40,17 @@ int main(int argc, char **argv)
   double q3[] = {24.0, 24.0};
   double * zs;
 
-  const size_t nx = 256;
-  const size_t ny = 256;
-  zs = perturb_orient2d(&orient2d, (const double *[]){q1, q2, q3}, 0, nx, ny);
-  correct(nx, ny, zs);
+  const size_t n = 256;
+  zs = perturb_orient2d(&orient2d, (const double *[]){q1, q2, q3}, 0, n);
+  correct(n, n, zs);
   free(zs);
 
-  zs = perturb_orient2d(&orient2d, (const double *[]){q2, q3, q1}, 2, nx, ny);
-  correct(nx, ny, zs);
+  zs = perturb_orient2d(&orient2d, (const double *[]){q2, q3, q1}, 2, n);
+  correct(n, n, zs);
   free(zs);
 
-  zs = perturb_orient2d(&orient2d, (const double *[]){q3, q1, q2}, 1, nx, ny);
-  correct(nx, ny, zs);
+  zs = perturb_orient2d(&orient2d, (const double *[]){q3, q1, q2}, 1, n);
+  correct(n, n, zs);
   free(zs);
 
   return 0;

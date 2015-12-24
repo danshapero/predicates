@@ -58,7 +58,7 @@ typedef double (*orient2d_t)(const double *, const double *, const double *);
  *    points: an array of the points around which we will be perturbing the
  *      inputs; a length-3 array of double[2]
  *    index: which input point to perturb; either 0, 1, 2
- *    nx, ny: size of the grid to examine
+ *    grid_size: number of pixels along each dimension
  * Returns:
  *   zs: a heap-allocated (ny, nx)-array in row-major order of the orientations
  *     of all the perturbed inputs relative to the non-perturbed inputs.
@@ -67,7 +67,6 @@ typedef double (*orient2d_t)(const double *, const double *, const double *);
 double * perturb_orient2d(const orient2d_t orientation,
                           const double ** points,
                           const size_t index,
-                          const size_t nx,
-                          const size_t ny);
+                          const size_t grid_size);
 
 #endif
