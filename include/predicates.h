@@ -50,6 +50,10 @@ double inspherefast(const double * pa,
  */
 
 typedef double (*orient2d_t)(const double *, const double *, const double *);
+typedef double (*incircle_t)(const double *,
+                             const double *,
+                             const double *,
+                             const double *);
 
 /**
  * Parameters:
@@ -69,4 +73,8 @@ double * perturb_orient2d(const orient2d_t orientation,
                           const size_t index,
                           const size_t grid_size);
 
+double * perturb_incircle(const incircle_t incircle,
+                          const double ** points,
+                          const size_t index,
+                          const size_t grid_size);
 #endif
