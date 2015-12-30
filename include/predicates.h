@@ -2,6 +2,13 @@
 #ifndef PREDICATES_H
 #define PREDICATES_H
 
+#include <stddef.h>
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 /**
  * Robust, adaptive-precision geometric predicates
  */
@@ -77,4 +84,9 @@ double * perturb_incircle(const incircle_t incircle,
                           const double ** points,
                           const size_t index,
                           const size_t grid_size);
+
+#ifdef __cplusplus
+}
+#endif
+
 #endif
