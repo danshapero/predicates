@@ -42,15 +42,15 @@ int main(int argc, char **argv)
 
   const size_t n = 256;
   zs = perturb_orient2d(&orient2d, (const double *[]){q1, q2, q3}, 0, n);
-  correct(n, n, zs);
+  correct(2*n+1, 2*n+1, zs);
   free(zs);
 
   zs = perturb_orient2d(&orient2d, (const double *[]){q2, q3, q1}, 2, n);
-  correct(n, n, zs);
+  correct(2*n+1, 2*n+1, zs);
   free(zs);
 
   zs = perturb_orient2d(&orient2d, (const double *[]){q3, q1, q2}, 1, n);
-  correct(n, n, zs);
+  correct(2*n+1, 2*n+1, zs);
   free(zs);
 
   return 0;
