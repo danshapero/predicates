@@ -87,7 +87,7 @@ bitmap_t matrix_to_bitmap(const size_t nx, const size_t ny, const double * A)
 
   for (size_t i = 0; i < ny; ++i) {
     for (size_t j = 0; j < nx; ++j) {
-      pixel_t * pixel = pixel_at(&bm, ny - i - 1, j);
+      pixel_t * pixel = pixel_at(&bm, j, ny - i - 1);
       const double a = A[nx * i + j];
       pixel->red = 255 * (a > 0);
       pixel->blue = 255 * (a < 0);

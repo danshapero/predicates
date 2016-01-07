@@ -6,6 +6,7 @@ if (PNG_FOUND)
   include_directories(${PNG_INCLUDE_DIRS})
   set (demo_list
     orient2d_demo.cpp
+    incircle_demo.cpp
     )
 endif(PNG_FOUND)
 
