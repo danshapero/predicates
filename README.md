@@ -22,3 +22,19 @@ Additionally, I'm adding unit tests, which will demonstrate both robustness of g
 There will be no substantive modifications to the main routines.
 
 Unit tests are in the directory `test/`; demonstrations of the failure of geometric predicates in floating-point arithmetic are in the directory `demos`.
+
+
+## Installation
+
+The code is built using [CMake](http://www.cmake.org) as follows:
+
+    mkdir build
+    cd build
+    cmake ..
+    make
+
+To run the unit tests:
+
+    make test
+    
+Demo programs are optionally built if you have `zlib` and `libpng`.
