@@ -5,9 +5,10 @@ find_package(PNG)
 if (PNG_FOUND)
   include_directories(${PNG_INCLUDE_DIRS})
   set (demo_list
-    orientation.c
-    incircle.c
-    hull.c)
+    #orientation.c
+    #incircle.c
+    #hull.c
+    )
 endif(PNG_FOUND)
 
 
