@@ -1,6 +1,7 @@
 
 set (test_list
-  orient2d.cpp)
+  orient2d.cpp
+  incircle.cpp)
 
 
 foreach (test ${test_list})
