@@ -3,6 +3,9 @@
 #define PREDICATES_HPP
 
 #include <predicates.h>
+#include <cmath>
+
+namespace predicates {
 
 template <typename Predicate, typename Continuation>
 void perturb2d(
@@ -28,6 +31,8 @@ void perturb2d(
   }
 }
 
+
+} // end of namespace predicates
 
 
 #endif

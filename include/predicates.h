@@ -7,6 +7,7 @@
 #ifdef __cplusplus
 extern "C"
 {
+namespace predicates {
 #endif
 
 /**
@@ -51,7 +52,8 @@ double inspherefast(const double * pa,
                     const double * pe);
 
 #ifdef __cplusplus
-}
+} // end of namespace predicates
+} // end of extern "C"
 #endif
 
 #endif

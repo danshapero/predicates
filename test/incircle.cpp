@@ -5,6 +5,8 @@
 
 #include <predicates.hpp>
 
+using namespace predicates;
+
 int main()
 {
 

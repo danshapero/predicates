@@ -5,6 +5,8 @@
 #include <predicates.hpp>
 #include "write_png.h"
 
+using namespace predicates;
+
 int main()
 {
   const double x1[] = {0.5, 0.5};
