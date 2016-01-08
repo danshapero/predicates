@@ -14,3 +14,6 @@ add_subdirectory (demos)
 
 enable_testing ()
 add_subdirectory (test)
+
+install (DIRECTORY ${PROJECT_SOURCE_DIR}/include/
+  DESTINATION include)
