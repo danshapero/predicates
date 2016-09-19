@@ -2,8 +2,10 @@
 #ifndef PREDICATES_HPP
 #define PREDICATES_HPP
 
-#include "predicates.h"
+
 #include <cmath>
+
+#include "predicates.h"
 
 namespace predicates {
 

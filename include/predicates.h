@@ -4,6 +4,8 @@
 
 #include <stddef.h>
 
+#include "predicatesDLLExport.h"
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -14,17 +16,17 @@ namespace predicates {
  * Robust, adaptive-precision geometric predicates
  */
 
-double orient2d(const double * pa, const double * pb, const double * pc);
-double orient3d(const double * pa,
+PREDICATES_EXPORT double orient2d(const double * pa, const double * pb, const double * pc);
+PREDICATES_EXPORT double orient3d(const double * pa,
                 const double * pb,
                 const double * pc,
                 const double * pd);
 
-double incircle(const double * pa,
+PREDICATES_EXPORT double incircle(const double * pa,
                 const double * pb,
                 const double * pc,
                 const double * pd);
-double insphere(const double * pa,
+PREDICATES_EXPORT double insphere(const double * pa,
                 const double * pb,
                 const double * pc,
                 const double * pd,
@@ -35,17 +37,17 @@ double insphere(const double * pa,
  * Nonrobust, fast geometric predicates.
  */
 
-double orient2dfast(const double * pa, const double * pb, const double * pc);
-double orient3dfast(const double * pa,
+PREDICATES_EXPORT double orient2dfast(const double * pa, const double * pb, const double * pc);
+PREDICATES_EXPORT double orient3dfast(const double * pa,
                     const double * pb,
                     const double * pc,
                     const double * pd);
 
-double incirclefast(const double * pa,
+PREDICATES_EXPORT double incirclefast(const double * pa,
                     const double * pb,
                     const double * pc,
                     const double * pd);
-double inspherefast(const double * pa,
+PREDICATES_EXPORT double inspherefast(const double * pa,
                     const double * pb,
                     const double * pc,
                     const double * pd,
@@ -53,6 +55,7 @@ double inspherefast(const double * pa,
 
 #ifdef __cplusplus
 } // end of namespace predicates
+
 } // end of extern "C"
 #endif
 
