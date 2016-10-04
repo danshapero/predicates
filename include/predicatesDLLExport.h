@@ -10,15 +10,15 @@
 #endif
 
 
-/* Cmake will define PREDICATES_EXPORTS on Windows when it
+/* Cmake will define predicates_EXPORTS on Windows when it
 configures to build a shared library. If you are going to use
 another build system on windows or create the visual studio
-projects by hand you need to define PREDICATES_EXPORTS when
+projects by hand you need to define predicates_EXPORTS when
 building the predicates DLL on windows.
 */
 
 
-#if defined (PREDICATES_EXPORTS)  /* Compiling the predicates DLL/Dylib */
+#if defined (predicates_EXPORTS)  /* Compiling the predicates DLL/Dylib */
   #if defined (_MSC_VER)  /* MSVC Compiler Case */
     #define  PREDICATES_EXPORT __declspec(dllexport)
     #define EXPIMP_TEMPLATE
