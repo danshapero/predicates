@@ -116,6 +116,7 @@
 #include <stdlib.h>
 #include <math.h>
 
+#include "predicates.h"
 #include "constants.h"
 
 /* On some machines, the exact arithmetic routines might be defeated by the  */
