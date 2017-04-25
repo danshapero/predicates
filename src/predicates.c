@@ -372,11 +372,7 @@
 /*                                                                           */
 /*****************************************************************************/
 
-int grow_expansion(elen, e, b, h)                /* e and h can be the same. */
-int elen;
-REAL *e;
-REAL b;
-REAL *h;
+int grow_expansion(int elen, REAL * e, REAL b, REAL * h)                /* e and h can be the same. */
 {
   REAL Q;
   INEXACT REAL Qnew;
@@ -409,11 +405,7 @@ REAL *h;
 /*                                                                           */
 /*****************************************************************************/
 
-int grow_expansion_zeroelim(elen, e, b, h)       /* e and h can be the same. */
-int elen;
-REAL *e;
-REAL b;
-REAL *h;
+int grow_expansion_zeroelim(int elen, REAL * e, REAL b, REAL * h)       /* e and h can be the same. */
 {
   REAL Q, hh;
   INEXACT REAL Qnew;
@@ -451,13 +443,8 @@ REAL *h;
 /*                                                                           */
 /*****************************************************************************/
 
-int expansion_sum(elen, e, flen, f, h)
+int expansion_sum(int elen, REAL * e, int flen, REAL * f, REAL * h)
 /* e and h can be the same, but f and h cannot. */
-int elen;
-REAL *e;
-int flen;
-REAL *f;
-REAL *h;
 {
   REAL Q;
   INEXACT REAL Qnew;
@@ -500,13 +487,8 @@ REAL *h;
 /*                                                                           */
 /*****************************************************************************/
 
-int expansion_sum_zeroelim1(elen, e, flen, f, h)
+int expansion_sum_zeroelim1(int elen, REAL * e, int flen, REAL * f, REAL * h)
 /* e and h can be the same, but f and h cannot. */
-int elen;
-REAL *e;
-int flen;
-REAL *f;
-REAL *h;
 {
   REAL Q;
   INEXACT REAL Qnew;
@@ -560,13 +542,8 @@ REAL *h;
 /*                                                                           */
 /*****************************************************************************/
 
-int expansion_sum_zeroelim2(elen, e, flen, f, h)
+int expansion_sum_zeroelim2(int elen, REAL * e, int flen, REAL * f, REAL * h)
 /* e and h can be the same, but f and h cannot. */
-int elen;
-REAL *e;
-int flen;
-REAL *f;
-REAL *h;
 {
   REAL Q, hh;
   INEXACT REAL Qnew;
@@ -617,12 +594,7 @@ REAL *h;
 /*                                                                           */
 /*****************************************************************************/
 
-int fast_expansion_sum(elen, e, flen, f, h)           /* h cannot be e or f. */
-int elen;
-REAL *e;
-int flen;
-REAL *f;
-REAL *h;
+int fast_expansion_sum(int elen, REAL * e, int flen, REAL * f, REAL * h)           /* h cannot be e or f. */
 {
   REAL Q;
   INEXACT REAL Qnew;
@@ -694,12 +666,7 @@ REAL *h;
 /*                                                                           */
 /*****************************************************************************/
 
-int fast_expansion_sum_zeroelim(elen, e, flen, f, h)  /* h cannot be e or f. */
-int elen;
-REAL *e;
-int flen;
-REAL *f;
-REAL *h;
+int fast_expansion_sum_zeroelim(int elen, REAL * e, int flen, REAL * f, REAL * h)  /* h cannot be e or f. */
 {
   REAL Q;
   INEXACT REAL Qnew;
@@ -779,12 +746,7 @@ REAL *h;
 /*                                                                           */
 /*****************************************************************************/
 
-int linear_expansion_sum(elen, e, flen, f, h)         /* h cannot be e or f. */
-int elen;
-REAL *e;
-int flen;
-REAL *f;
-REAL *h;
+int linear_expansion_sum(int elen, REAL * e, int flen, REAL * f, REAL * h)         /* h cannot be e or f. */
 {
   REAL Q, q;
   INEXACT REAL Qnew;
@@ -843,12 +805,7 @@ REAL *h;
 /*                                                                           */
 /*****************************************************************************/
 
-int linear_expansion_sum_zeroelim(elen, e, flen, f, h)/* h cannot be e or f. */
-int elen;
-REAL *e;
-int flen;
-REAL *f;
-REAL *h;
+int linear_expansion_sum_zeroelim(int elen, REAL * e, int flen, REAL * f, REAL * h)/* h cannot be e or f. */
 {
   REAL Q, q, hh;
   INEXACT REAL Qnew;
@@ -917,11 +874,7 @@ REAL *h;
 /*                                                                           */
 /*****************************************************************************/
 
-int scale_expansion(elen, e, b, h)            /* e and h cannot be the same. */
-int elen;
-REAL *e;
-REAL b;
-REAL *h;
+int scale_expansion(int elen, REAL * e, REAL b, REAL * h)            /* e and h cannot be the same. */
 {
   INEXACT REAL Q;
   INEXACT REAL sum;
@@ -966,11 +919,7 @@ REAL *h;
 /*                                                                           */
 /*****************************************************************************/
 
-int scale_expansion_zeroelim(elen, e, b, h)   /* e and h cannot be the same. */
-int elen;
-REAL *e;
-REAL b;
-REAL *h;
+int scale_expansion_zeroelim(int elen, REAL * e, REAL b, REAL * h)   /* e and h cannot be the same. */
 {
   INEXACT REAL Q, sum;
   REAL hh;
@@ -1021,10 +970,7 @@ REAL *h;
 /*                                                                           */
 /*****************************************************************************/
 
-int compress(elen, e, h)                         /* e and h may be the same. */
-int elen;
-REAL *e;
-REAL *h;
+int compress(int elen, REAL * e, REAL * h)                         /* e and h may be the same. */
 {
   REAL Q, q;
   INEXACT REAL Qnew;
@@ -1066,9 +1012,7 @@ REAL *h;
 /*                                                                           */
 /*****************************************************************************/
 
-REAL estimate(elen, e)
-int elen;
-REAL *e;
+REAL estimate(int elen, REAL * e)
 {
   REAL Q;
   int eindex;
