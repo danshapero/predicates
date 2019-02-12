@@ -12,8 +12,8 @@ endif()
 project (predicates VERSION 1.0.0)
 
 if(NOT MSVC)
-  list (APPEND CMAKE_C_FLAGS "-std=c99 -Wall")
-  list (APPEND CMAKE_CXX_FLAGS "-std=c++11 -Wall")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99 -Wall")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
 endif()
 
 # ---------- Setup library output Directories -------------------------
