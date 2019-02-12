@@ -19,7 +19,7 @@ endfunction()
 
 set(Predicates_LINK_LIBRARIES "predicates")
 if(NOT WIN32)
-  set(Predicates_LINK_LIBRARIES predicates m)
+  set(Predicates_LINK_LIBRARIES predicates m mpfr)
 endif()
 
 

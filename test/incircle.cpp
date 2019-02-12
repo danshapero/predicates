@@ -1,11 +1,10 @@
 
+#include <predicates.hpp>
 #include <cassert>
 #include <cfloat>
 #include <cmath>
-
 #include <vector>
-
-#include <predicates.hpp>
+#include "mpreal.h"
 
 using namespace predicates;
 
@@ -78,12 +77,17 @@ int main()
     // to test by fixing the other three points to check against.
     auto predicate = [&](const double * q) { return incircle(q1, q2, q3, q); };
 
+    // Set a high default precision for MPFR so we get exact results
+    mpfr::mpreal::set_default_prec(2048);
+
     // This is the callback for our perturbation routine.
     auto correct =
       [&](const double p, const double * q, const size_t, const size_t)
       {
-        const double y[] = {q[0] - x[0], q[1] - x[1]};
-        const double r2 = y[0]*y[0] + y[1]*y[1];
+        const mpfr::mpreal X[] = {x[0], x[1]};
+        const mpfr::mpreal Q[] = {q[0], q[1]};
+        const mpfr::mpreal Y[] = {Q[0] - X[0], Q[1] - X[1]};
+        const mpfr::mpreal r2 = Y[0]*Y[0] + Y[1]*Y[1];
 
         if (r2 < n*n) assert(p > 0);
         else if (r2 > n*n) assert(p < 0);
