@@ -32,3 +32,8 @@ AddPredicatesUnitTest(TESTNAME incircle
                       SOURCES ${predicates_SOURCE_DIR}/test/incircle.cpp
                       FOLDER "Predicates/Test"
                       LINK_LIBRARIES ${Predicates_LINK_LIBRARIES} )
+
+AddPredicatesUnitTest(TESTNAME orient3d
+                      SOURCES ${predicates_SOURCE_DIR}/test/orient3d.cpp
+                      FOLDER "Predicates/Test"
+                      LINK_LIBRARIES ${Predicates_LINK_LIBRARIES} )
