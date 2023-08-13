@@ -8,19 +8,16 @@
 /*                                                                           */
 /*****************************************************************************/
 
-double doublerand()
-{
-  int a = rand();
-  int b = rand();
-  int c = rand();
-  double expo = 2;
-  double result = (double) (a - 1073741824) * 8388608.0 + (double) (b >> 8);
-  for (int i = 512; i <= 131072; i *= 2, expo = expo * expo) {
-    if (c & i) {
-      result *= expo;
-    }
-  }
-  return result;
+double doublerand() {
+	int	   a	  = rand();
+	int	   b	  = rand();
+	int	   c	  = rand();
+	double expo	  = 2;
+	double result = (double)(a - 1073741824) * 8388608.0 + (double)(b >> 8);
+	for(int i = 512; i <= 131072; i *= 2, expo = expo * expo) {
+		if(c & i) { result *= expo; }
+	}
+	return result;
 }
 
 /*****************************************************************************/
@@ -30,19 +27,16 @@ double doublerand()
 /*                                                                           */
 /*****************************************************************************/
 
-double narrowdoublerand()
-{
-  int a = rand();
-  int b = rand();
-  int c = rand();
-  double expo = 2;
-  double result = (double) (a - 1073741824) * 8388608.0 + (double) (b >> 8);
-  for (int i = 512; i <= 2048; i *= 2, expo = expo * expo) {
-    if (c & i) {
-      result *= expo;
-    }
-  }
-  return result;
+double narrowdoublerand() {
+	int	   a	  = rand();
+	int	   b	  = rand();
+	int	   c	  = rand();
+	double expo	  = 2;
+	double result = (double)(a - 1073741824) * 8388608.0 + (double)(b >> 8);
+	for(int i = 512; i <= 2048; i *= 2, expo = expo * expo) {
+		if(c & i) { result *= expo; }
+	}
+	return result;
 }
 
 /*****************************************************************************/
@@ -51,12 +45,11 @@ double narrowdoublerand()
 /*                                                                           */
 /*****************************************************************************/
 
-double uniformdoublerand()
-{
-  int a = rand();
-  int b = rand();
-  double result = (double) (a - 1073741824) * 8388608.0 + (double) (b >> 8);
-  return result;
+double uniformdoublerand() {
+	int	   a	  = rand();
+	int	   b	  = rand();
+	double result = (double)(a - 1073741824) * 8388608.0 + (double)(b >> 8);
+	return result;
 }
 
 /*****************************************************************************/
@@ -66,18 +59,15 @@ double uniformdoublerand()
 /*                                                                           */
 /*****************************************************************************/
 
-float floatrand()
-{
-  int a = rand();
-  int c = rand();
-  float expo = 2;
-  float result = (float) ((a - 1073741824) >> 6);
-  for (int i = 512; i <= 16384; i *= 2, expo = expo * expo) {
-    if (c & i) {
-      result *= expo;
-    }
-  }
-  return result;
+float floatrand() {
+	int	  a		 = rand();
+	int	  c		 = rand();
+	float expo	 = 2;
+	float result = (float)((a - 1073741824) >> 6);
+	for(int i = 512; i <= 16384; i *= 2, expo = expo * expo) {
+		if(c & i) { result *= expo; }
+	}
+	return result;
 }
 
 /*****************************************************************************/
@@ -87,18 +77,15 @@ float floatrand()
 /*                                                                           */
 /*****************************************************************************/
 
-float narrowfloatrand()
-{
-  int a = rand();
-  int c = rand();
-  float expo = 2;
-  float result = (float) ((a - 1073741824) >> 6);
-  for (int i = 512; i <= 2048; i *= 2, expo = expo * expo) {
-    if (c & i) {
-      result *= expo;
-    }
-  }
-  return result;
+float narrowfloatrand() {
+	int	  a		 = rand();
+	int	  c		 = rand();
+	float expo	 = 2;
+	float result = (float)((a - 1073741824) >> 6);
+	for(int i = 512; i <= 2048; i *= 2, expo = expo * expo) {
+		if(c & i) { result *= expo; }
+	}
+	return result;
 }
 
 /*****************************************************************************/
@@ -107,9 +94,8 @@ float narrowfloatrand()
 /*                                                                           */
 /*****************************************************************************/
 
-float uniformfloatrand()
-{
-  int a = rand();
-  float result = (float) ((a - 1073741824) >> 6);
-  return result;
+float uniformfloatrand() {
+	int	  a		 = rand();
+	float result = (float)((a - 1073741824) >> 6);
+	return result;
 }
