@@ -1,13 +1,5 @@
 
-cmake_minimum_required (VERSION 2.8.11)
-
-if(${CMAKE_MAJOR_VERSION} STREQUAL "3")
-  # CMake 3.0 introduces VERSION variables for each Project.
-  cmake_policy(SET CMP0048 NEW)
-  # CMake 3.0 introduces some OS X RPath policies
-  cmake_policy(SET CMP0042 OLD)
-endif()
-
+cmake_minimum_required(VERSION 3.0...3.29)
 
 project (predicates VERSION 1.0.0)
 
