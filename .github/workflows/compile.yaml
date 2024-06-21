@@ -1,0 +1,45 @@
+name: compile
+on: [push]
+
+jobs:
+
+  gcc:
+    runs-on: ubuntu-latest
+    container: gcc:latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: CMake and run test
+        run: |
+          apt-get update
+          apt-get install -y cmake
+          cmake -B build -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++
+          cmake --build build
+          make test -C build
+
+  clang:
+    runs-on: ubuntu-latest
+    container: silkeh/clang:latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: CMake and run test
+        run: |
+          cmake -B build -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++
+          cmake --build build
+          make test -C build
+
+  icx:
+    # using Release build type results in failing tests (21.6.2024)
+    runs-on: ubuntu-latest
+    container: intel/oneapi-hpckit:latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: CMake and run test
+        run: |
+          apt-get update --allow-insecure-repositories
+          apt-get install --allow-unauthenticated -y cmake
+          cmake -B build -DCMAKE_C_COMPILER=icx -DCMAKE_CXX_COMPILER=icpx -DCMAKE_BUILD_TYPE=Debug
+          cmake --build build
+          make test -C build
